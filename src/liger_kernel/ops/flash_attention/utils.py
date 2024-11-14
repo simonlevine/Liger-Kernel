@@ -78,7 +78,7 @@ def infer_bias_strides(
             raise ValueError(f"Attention bias has {bias.size(0) = } while {batch = }")
         if bias.size(1) == 1:
             stride_bh = 0
-        elif bias.stride(1) == nheads_q:
+        elif bias.size(1) == nheads_q:
             stride_bh = bias.stride(1)
         else:
             raise ValueError(
